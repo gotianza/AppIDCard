@@ -1,6 +1,7 @@
 # app_id
 
 A new Flutter application.
+This is my first app on Flutter. More is coming!
 
 ## Getting Started
 
