@@ -6,8 +6,16 @@ void main() { runApp(MaterialApp(
 ));
 }
 
-class AppCard extends StatelessWidget {
+class AppCard extends StatefulWidget {
   const AppCard({Key? key}) : super(key: key);
+
+  @override
+  _AppCardState createState() => _AppCardState();
+}
+
+class _AppCardState extends State<AppCard> {
+
+  int level = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +26,15 @@ class AppCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            level += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -64,7 +81,7 @@ class AppCard extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              '8',
+              '$level',
               style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 3,
@@ -98,3 +115,6 @@ class AppCard extends StatelessWidget {
     );
   }
 }
+
+
+
